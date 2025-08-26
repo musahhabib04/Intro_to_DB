@@ -12,8 +12,8 @@ def create_server_connection():
         )
         if connection.is_connected():
             print("✅ Connection to MySQL server successful!")
-    except Error as e:
-        print(f"❌ Error: '{e}' occurred while connecting to MySQL server")
+    except mysql.connector.Error as err:   # <-- explicit exception handling
+        print(f"❌ Error: '{err}' occurred while connecting to MySQL server")
     return connection
 
 def create_database(connection, query):
